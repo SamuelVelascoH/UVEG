@@ -1,1 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto 3 - Registro de la persona Usuaria</title>
+    <style>
+        /* 1. Selector de Elemento (body, h1, label, input, select, button) */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #eef2f5; /* Backgrounds */
+            color: #2c3e50; /* Fuentes: colores de texto */
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
+        /* 2. Selector de ID (#registro-contenedor) */
+        #registro-contenedor {
+            background-color: #ffffff; /* Backgrounds */
+            width: 100%;
+            max-width: 550px;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid #dcdfe6; /* Bordes */
+        }
+
+        /* 3. Selectores de Clase (.titulo-formulario, .campo-grupo, .subtitulo-intereses, etc.) */
+        .titulo-formulario {
+            text-align: center;
+            font-size: 26px; /* Fuentes: tamaños */
+            color: #1a5276; /* Fuentes: colores */
+            margin-top: 0;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .campo-grupo {
+            margin-bottom: 20px;
+        }
+
+        .etiqueta-campo {
+            display: block;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #34495e;
+        }
+
+        /* Entradas de texto, correo, password y textarea */
+        .input-texto, 
+        .input-textarea {
+            width: 100%;
+            padding: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            color: #2c3e50;
+            background-color: #f8fafc; /* Backgrounds */
+            border: 1px solid #cbd5e1; /* Bordes */
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, background-color 0.3s ease;
+        }
+
+        .input-texto:focus, 
+        .input-textarea:focus {
+            outline: none;
+            border-color: #3498db; /* Bordes activados */
+            background-color: #ffffff;
+        }
+
+        .input-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Sección de Checkboxes (Intereses) */
+        .subtitulo-intereses {
+            font-size: 15px;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .grupo-checkboxes {
+            background-color: #f1f5f9; /* Backgrounds */
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e2e8f0; /* Bordes */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .opcion-checkbox {
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            cursor: pointer;
+            color: #475569;
+        }
+
+        .opcion-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+            width: 16px;
+            height: 16px;
+            accent-color: #3498db;
+        }
+
+        /* Botón de Envío (Submit) */
+        .boton-submit {
+            width: 100%;
+            background-color: #27ae60; /* Backgrounds */
+            color: #ffffff; /* Fuentes: color */
+            font-size: 16px; /* Fuentes: tamaño */
+            font-weight: bold;
+            padding: 14px;
+            border: none; /* Bordes */
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .boton-submit:hover {
+            background-color: #219653;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Selector de ID aplicado en el contenedor principal -->
+    <div id="registro-contenedor">
+        
+        <!-- Título obligatorio según la rúbrica -->
+        <h1 class="titulo-formulario">Registro de la persona Usuaria</h1>
+
+        <form action="#" method="POST">
+            
+            <!-- Campo Nombre -->
+            <div class="campo-grupo">
+                <label for="nombre" class="etiqueta-campo">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" class="input-texto" placeholder="Ingresa tu nombre" required>
+            </div>
+
+            <!-- Campo Apellido -->
+            <div class="campo-grupo">
+                <label for="apellido" class="etiqueta-campo">Apellido:</label>
+                <input type="text" id="apellido" name="apellido" class="input-texto" placeholder="Ingresa tu apellido" required>
+            </div>
+
+            <!-- Campo Correo Electrónico -->
+            <div class="campo-grupo">
+                <label for="correo" class="etiqueta-campo">Correo Electrónico:</label>
+                <input type="email" id="correo" name="correo" class="input-texto" placeholder="ejemplo@correo.com" required>
+            </div>
+
+            <!-- Campo Contraseña -->
+            <div class="campo-grupo">
+                <label for="password" class="etiqueta-campo">Contraseña:</label>
+                <input type="password" id="password" name="password" class="input-texto" placeholder="Crea una contraseña segura" required>
+            </div>
+
+            <!-- Área de Texto (Textarea) -->
+            <div class="campo-grupo">
+                <label for="descripcion" class="etiqueta-campo">Breve descripción sobre ti:</label>
+                <textarea id="descripcion" name="descripcion" class="input-textarea" placeholder="Cuéntanos brevemente sobre tus metas y experiencia..."></textarea>
+            </div>
+
+            <!-- Checkboxes (Intereses) -->
+            <div class="campo-grupo">
+                <span class="subtitulo-intereses">Intereses principales:</span>
+                <div class="grupo-checkboxes">
+                    <label class="opcion-checkbox">
+                        <input type="checkbox" name="intereses" value="tecnologia"> Tecnología
+                    </label>
+                    <label class="opcion-checkbox">
+                        <input type="checkbox" name="intereses" value="arte"> Arte
+                    </label>
+                    <label class="opcion-checkbox">
+                        <input type="checkbox" name="intereses" value="deporte"> Deporte
+                    </label>
+                </div>
+            </div>
+
+            <!-- Botón de Envío -->
+            <button type="submit" class="boton-submit">Registrarse</button>
+
+        </form>
+    </div>
+
+</body>
+</html>
